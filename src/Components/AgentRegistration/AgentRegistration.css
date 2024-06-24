@@ -1,0 +1,106 @@
+.personalDetails {
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+
+.personalDetails .heading {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  margin-left: 35px;
+  margin-bottom: 30px;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInDown 2s ease-out;
+  cursor: pointer;
+}
+
+.personalDetails .heading:hover {
+  color: #4f80a5;
+  transform: scale(1.05);
+}
+
+.personalDetails .form-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-left: 80px;
+  margin-top: -15px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.personalDetails .form-group {
+  flex: 1 1 100%;
+  margin: 0 10px;
+}
+
+.personalDetails .button {
+  width: 180px;
+  margin-right: 52vw;
+}
+
+.personalDetails .intro {
+  margin-right: -38vw;
+}
+
+@media (min-width: 576px) {
+  .personalDetails .form-group {
+    flex: 1 1 48%;
+  }
+}
+
+@media (min-width: 768px) {
+  .personalDetails .form-group {
+    flex: 1 1 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .personalDetails {
+    width: 90vw;
+    margin-left: 0;
+    margin-right: 5vw;
+  }
+
+  .personalDetails .heading {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 2rem;
+  }
+
+  .personalDetails .form-section {
+    margin-left: 10px;
+    flex-direction: column;
+  }
+
+  .personalDetails .form-group {
+    margin: 0 5px;
+    width: 100%;
+  }
+
+  .personalDetails .center-content {
+    margin-top: 10px;
+  }
+
+  .personalDetails .intro {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .personalDetails .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .personalDetails .button .ant-btn-primary {
+    width: 100%;
+  }
+}
