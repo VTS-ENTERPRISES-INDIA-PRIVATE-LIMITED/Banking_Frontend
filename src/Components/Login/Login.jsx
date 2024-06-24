@@ -19,7 +19,8 @@ export const Login = () => {
       span: 16,
     }}
     style={{
-      maxWidth: 600,
+    //   maxWidth: 1000,
+      width:700,
     }}
     initialValues={{
       remember: true,
@@ -28,7 +29,7 @@ export const Login = () => {
     onFinishFailed={onFinishFailed}
     autoComplete="on"
   >
-    <Form.Item
+     <Form.Item
       label="Username"
       name="userid"
       rules={[
@@ -40,6 +41,15 @@ export const Login = () => {
     >
       <Input />
     </Form.Item>
+    
+        <Form.Item
+        label="Username"
+        >
+        </Form.Item>
+        <Form.Item name="username">
+            <Input />
+        </Form.Item>
+    
     <Form.Item
       label="email"
       name="email"
@@ -64,7 +74,7 @@ export const Login = () => {
       ]}
     >
       <Input.Password />
-    </Form.Item>
+    </Form.Item> 
 
     <Form.Item
       name="remember"
