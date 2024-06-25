@@ -57,8 +57,8 @@ const Login = () => {
               </div>
               {showOtpInput && (
                 <div className="input-group">
-                  <label htmlFor="otp">OTP:</label>
-                <Input.OTP mask="🔒" {...sharedProps} />
+                  <label htmlFor="otp" >OTP:</label>
+                <Input.OTP {...sharedProps} id='otp' />
                   
                 </div>
               )}

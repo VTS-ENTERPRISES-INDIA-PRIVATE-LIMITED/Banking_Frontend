@@ -48,15 +48,7 @@ const AgentRegistration = ({ onComplete}) => {
       return;
     }
 
-    const dob = values.dob;
-    const age = calculateAge(dob);
-
-    if (age < 10) {
-      message.error('Must be at least 10 years old');
-      return;
-    }
-
-    if (!validateName(values.firstName) || !validateName(values.middleName) || !validateName(values.lastName)) {
+    if (!validateName(values.firstName)  || !validateName(values.lastName)) {
       message.error('Name fields should not contain numbers or special characters');
       return;
     }
@@ -73,37 +65,15 @@ const AgentRegistration = ({ onComplete}) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
   };
 
-  const calculateAge = (dob) => {
-    const today = new Date();
-    const birthDate = new Date(dob);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const month = today.getMonth() - birthDate.getMonth();
-    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  };
 
   const validateName = (name) => {
     return /^[a-zA-Z ]+$/.test(name);
   };
 
-  const validateDOB = (_, value) => {
-    if (!value) {
-      return Promise.reject(new Error('Please select your date of birth!'));
-    }
-    const age = calculateAge(value);
-    if (age < 10) {
-      return Promise.reject(new Error('Must be at least 10 years old'));
-    }
-    return Promise.resolve();
-  };
+  
   const changeTab = () => {
  
 }
-  
-
-  
   return (
     <div className='container'>
       
@@ -129,127 +99,14 @@ const AgentRegistration = ({ onComplete}) => {
                 >
                   <Input />
                 </Form.Item>
-                 <Form.Item
-                  name="phone"
-                  label="Phone Number"
-                  rules={[
-                    { required: true, message: 'Please input your phone number!' },
-                    { pattern: /^\d{10}$/, message: 'Invalid Phone Number' },
-                    ({ getFieldValue }) => ({
-                      validator(_, value) {
-                        const prefix = getFieldValue('prefix');
-                        if (!prefix && value) {
-                          return Promise.reject('Please select prefix!');
-                        }
-                        return Promise.resolve();
-                      },
-                    }),
-                  ]}
-                >
-                  <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-                </Form.Item>
+                 
                 <Form.Item
                   label="Telephone Number"
                   name="telephone"
-                  rules={[
-                    { required: true, message: 'Please input your telephone number!' },
-                    { pattern: /^\d+$/, message: 'Telephone number should contain only numbers!' },
-                  ]}
                 >
                   <Input />
               </Form.Item>
                <Form.Item
-                  name="preferredLanguage"
-                  label="Preferred Language"
-                  hasFeedback
-                  rules={[{ required: true, message: 'Please select your language!' }]}
-                >
-                  <Select style={{ width: '100%' }} >
-                    <Option value="Telugu">Telugu</Option>
-                    <Option value="English">English</Option>
-                    <Option value="Hindi">Hindi</Option>
-                  </Select>
-              </Form.Item>
-              <Form.Item
-                  name="state"
-                  label="State"
-                  rules={[{ required: true, message: 'Please select your state!' }]}
-                >
-                  <Select style={{ width: '100%' }}>
-                    <Option value="Andhra Pradesh">Andhra Pradesh</Option>
-                    <Option value="Arunachal Pradesh">Arunachal Pradesh</Option>
-                    <Option value="Assam">Assam</Option>
-                    <Option value="Madhya Pradesh">Madhya Pradesh</Option>
-                    <Option value="Maharashtra">Maharashtra</Option>
-                    <Option value="West Bengal">West Bengal</Option>
-                  </Select>
-                </Form.Item>
-                
-                <Form.Item
-                  label="Address"
-                  name="address"
-                  rules={[
-                    { required: true, message: 'Please input your address' },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-              </div>
-            <div className="form-group">
-              <Form.Item
-                  label="Middle Name"
-                  name="middleName"
-                  rules={[
-                    { required: true, message: 'Please input your middle name!' },
-                    { pattern: /^[a-zA-Z ]+$/, message: 'Middle name should not contain numbers or special characters' },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-               
-                <Form.Item
-                  name="email"
-                  label="E-mail"
-                  rules={[
-                    { required: true, message: 'Please input your E-mail!' },
-                    { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid Email Address' },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-                <Form.Item
-                  name="dob"
-                  label="Date of Birth"
-                  rules={[{ validator: validateDOB }]}
-                >
-                  <DatePicker style={{ width: '100%' }} />
-                </Form.Item>
-                <Form.Item
-                  name="gender"
-                  label="Gender"
-                  rules={[{ required: true, message: 'Please select your gender!' }]}
-                >
-                  <Select style={{ width: '100%' }}>
-                    <Option value="Male">Male</Option>
-                    <Option value="Female">Female</Option>
-                    <Option value="Others">Others</Option>
-                  </Select>
-                </Form.Item>
-              </div>
-            <div className="form-group">
-              <Form.Item
-                  label="Last Name"
-                  name="lastName"
-                  rules={[
-                    { required: true, message: 'Please input your last name!' },
-                    { pattern: /^[a-zA-Z ]+$/, message: 'Last name should not contain numbers or special characters' },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-               
-                
-                <Form.Item
                   name="city"
                   label="City"
                   rules={[{ required: true, message: 'Please select your city!' }]}
@@ -273,24 +130,106 @@ const AgentRegistration = ({ onComplete}) => {
                     <Option value="Ujjain">Ujjain</Option>
                   </Select>
                 </Form.Item>
-                <Form.Item
+                 <Form.Item
                   name="branch"
                   label="Branch"
                   rules={[{ required: true, message: 'Please input your branch!' }]}
                 >
                   <Input />
                 </Form.Item>
-                <Form.Item
-                  name="account"
-                  label="Type Of Account"
-                  hasFeedback
-                  rules={[{ required: true, message: 'Please select your account type!' }]}
+               
+              </div>
+            <div className="form-group">
+             <Form.Item
+                  label="Middle Name"
+                  name="middleName"
                 >
-                  <Select style={{ width: '100%' }} >
-                    <Option value="savings account">Savings Account</Option>
-                    <Option value="current account">Current Account</Option>
+                  <Input />
+              </Form.Item>
+               <Form.Item
+                  name="phone"
+                  label="Phone Number"
+                  rules={[
+                    { required: true, message: 'Please input your phone number!' },
+                    { pattern: /^\d{10}$/, message: 'Invalid Phone Number' },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        const prefix = getFieldValue('prefix');
+                        if (!prefix && value) {
+                          return Promise.reject('Please select prefix!');
+                        }
+                        return Promise.resolve();
+                      },
+                    }),
+                  ]}
+                >
+                  <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+              </Form.Item>
+                
+                
+               <Form.Item
+                  name="state"
+                  label="State"
+                  rules={[{ required: true, message: 'Please select your state!' }]}
+                >
+                  <Select style={{ width: '100%' }}>
+                    <Option value="Andhra Pradesh">Andhra Pradesh</Option>
+                    <Option value="Arunachal Pradesh">Arunachal Pradesh</Option>
+                    <Option value="Assam">Assam</Option>
+                    <Option value="Madhya Pradesh">Madhya Pradesh</Option>
+                    <Option value="Maharashtra">Maharashtra</Option>
+                    <Option value="West Bengal">West Bengal</Option>
+                  </Select>
+              </Form.Item>
+              <Form.Item
+                  name="country"
+                  label="Country"
+                  rules={[{ required: true, message: 'Please select your state!' }]}
+                >
+                  <Select style={{ width: '100%' }}>
+                    <Option value="India">India</Option>
+                    <Option value="China">China</Option>
+                    <Option value="Japan">Japan</Option>
+                    <Option value="Malaysia">Malaysia</Option>
+                    <Option value="Korea">Korea</Option>
+                    <Option value="South-Korea">South-Korea</Option>
                   </Select>
                 </Form.Item>
+              </div>
+            <div className="form-group">
+               <Form.Item
+                  label="Last Name"
+                  name="lastName"
+                  rules={[
+                    { required: true, message: 'Please input your last name!' },
+                    { pattern: /^[a-zA-Z ]+$/, message: 'Last name should not contain numbers or special characters' },
+                  ]}
+                >
+                  <Input />
+              </Form.Item>
+              
+              <Form.Item
+                  name="email"
+                  label="E-mail"
+                  rules={[
+                    { required: true, message: 'Please input your E-mail!' },
+                    { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid Email Address' },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              
+             <Form.Item
+  label="Pin-Code"
+  name="pincode"
+  rules={[
+    { required: true, message: 'Please input your pin code number!' },
+    { pattern: /^[1-9][0-9]{5}$/, message: 'Pin code should contain exactly 6 digits!' },
+  ]}
+>
+  <Input />
+</Form.Item>
+
                 <Form.Item label="Captcha" required>
                   <Captcha onValidate={setCaptchaValid} />
                 </Form.Item>
@@ -311,7 +250,8 @@ const AgentRegistration = ({ onComplete}) => {
                   ]}
                 >
                   <Checkbox>I accept the terms and conditions</Checkbox>
-                </Form.Item>
+              </Form.Item>
+              </div>
                 <div className='button'>
                   <Form.Item
                     wrapperCol={{ span: 24 }}
@@ -320,7 +260,6 @@ const AgentRegistration = ({ onComplete}) => {
                     <Button type="primary" htmlType="submit" style={{ width: '100%' }} >Register</Button>
                     
                   </Form.Item>
-                </div>
               </div>
             </div>
           </Form>

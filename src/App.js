@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from './Components/Login/Login'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
 import ResetPassword from './Components/PasswordReset/PasswordReset';
-import React, { useState } from 'react';
+import React from 'react';
 import Recharge from "./Components/Recharge/Recharge"
 
 

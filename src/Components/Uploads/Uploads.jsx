@@ -78,7 +78,8 @@ const Uploads = ({onComplete}) => {
             type="file"
             accept="image/*"
             onChange={handlePanCardChange}
-            className="input-file"
+                className="input-file"
+                required
           />
           {panCardPreview && (
             <div className="image-preview" onClick={() => handleImageClick(panCardPreview)}>
@@ -92,7 +93,8 @@ const Uploads = ({onComplete}) => {
             type="file"
             accept="image/*"
             onChange={handleAadharCardChange}
-            className="input-file"
+                className="input-file"
+                required
           />
           {aadharCardPreview && (
             <div className="image-preview" onClick={() => handleImageClick(aadharCardPreview)}>

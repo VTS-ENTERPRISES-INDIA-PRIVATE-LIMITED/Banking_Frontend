@@ -71,28 +71,37 @@ const EmailVerification = () => {
             {isOtpSent && (
                 <div className="input-group">
                   <label htmlFor="otp">OTP:</label>
-                <Input.OTP mask="🔒" {...sharedProps} />
-                  
+                <Input.OTP  {...sharedProps} />
+
                 </div>
             )}
             {isOtpSent && !isTimerComplete && (
             <div className="timer-section">
-              <p>Time remaining: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? '0' : ''}{timeLeft % 60}</p>
+              <p style={{marginLeft:"300px"}}>{Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? '0' : ''}{timeLeft % 60}</p>
             </div>
           )}
-          {isOtpSent && isTimerComplete && (
-            <div className="verification-failed">
-              <p>Verification failed.</p>
-              
-            </div>
-          )}
+          
+          
             <button type="submit" className="reset-button" disabled={isOtpSent}>
               {isOtpSent ? 'Verify' : 'Send OTP'}
               
             </button>
-            <p><a href="#" className="change-email-button" onClick={handleResendOtp}>Change Email Address</a></p>
+            {isOtpSent && isTimerComplete && (
+            <div className="verification-failed">
+              <p>Verification failed.</p>
+              
+              </div>)}
+            {isOtpSent && (
+                <div>
+                  
+                <p><a href="/" className="change-email-button" onClick={handleResendOtp}>Change Email Address</a></p>
+                <p><a href="/" onClick={handleSendOtp}>Resend OTP</a></p>
+                  
+                </div>
+            )}
+            
 
-            <p><a href="#" onClick={handleSendOtp}  disabled={isOtpSent}>{isOtpSent ? 'Resend OTP' : ''}</a></p>
+
           </form>
           
         </div>
