@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  .transactions-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position:avabsolute;
+   
+    margin-top:15px;
+  }
+  
+  .transactions-container .ant-form-item {
+    margin-bottom: 16px;
+  
+  }
+  
+  .transactions-container .ant-form-item .label {
+    font-weight: bold;
+  }
+  
+  .transactions-container .ant-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .transactions-container .ant-input::placeholder {
+    color: #aaa;
+  }
+  
+  table {
+    margin: 20px 30px 0 45px; /* Adjusted margin to create space above the table */
+    width: 92%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  thead {
+    color: #ffffff;
+    background-color: #115376;
+  }
+  

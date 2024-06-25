@@ -7,12 +7,20 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.18.3",
+<<<<<<< HEAD
+    "antd-mobile": "^5.36.1",
+    "axios": "^1.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+=======
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-modal": "^3.16.1",
+>>>>>>> 66c5ce85a568466dade268d39c2f34beb1727586
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
