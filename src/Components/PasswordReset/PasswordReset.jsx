@@ -15,15 +15,15 @@ const PasswordReset = () => {
       <div className="form-section">
         <h2> Reset Your Password</h2>
         <form>
-          <div className="input-group">
-            <Input.Password style={{ width: "110%", padding: "10px", border: "3px solid #ccc", borderRadius:"4px", fontSize: "16px"}} type="password" name="password" required placeholder="Enter Password" />
+         <center> <div className="input-group">
+            <Input.Password style={{ width: "70%", height: "10%"}} type="password" name="password" required placeholder="Enter Password" />
       
           </div>
           <div className="input-group">
-            <Input.Password style={{ width: "110%", padding: "10px", border: "3px solid #ccc", borderRadius:"4px", fontSize: "16px"}} type="password" name="password" required placeholder="Enter Confirm Password" />
+            <Input.Password style={{ width: "70%"}} type="password" name="password" required placeholder="Enter Confirm Password" />
       
-          </div>
-          <button type="submit" className='reset-button'>Change</button>
+          </div></center>
+          <center><button type="submit" className='reset-button'>Change</button></center>
         </form>
       </div>
     </div>
