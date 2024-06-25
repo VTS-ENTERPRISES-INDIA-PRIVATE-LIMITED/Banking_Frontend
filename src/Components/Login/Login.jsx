@@ -74,7 +74,7 @@ const Login = () => {
               <label htmlFor="rememberMe">Remember my username on this computer</label>
             </div>
             <div className="additional-links">
-              <a href="/ForgotPassword" className='forget'>Not Have Account?</a>
+              <a href="/" className='forget'>Not Have Account?</a>
               <a href="/ForgotPassword">Forgot Password?</a>
               
               

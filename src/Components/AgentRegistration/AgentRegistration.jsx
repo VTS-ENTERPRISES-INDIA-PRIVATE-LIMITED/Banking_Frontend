@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, Select, DatePicker, Button, Checkbox, message } from 'antd';
 import Captcha from './Captcha';
 import './AgentRegistration.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 
@@ -15,11 +16,13 @@ const prefixSelector = (
   </Form.Item>
 );
 
-const AgentRegistration = ({ onSubmit }) => {
+const AgentRegistration = ({ onComplete}) => {
+  const navigate = useNavigate();
   const [form] = Form.useForm();
   const [captchaValid, setCaptchaValid] = useState(false);
-
+  
   const onFinish = (values) => {
+    
     if (!captchaValid) {
       message.error('Invalid Captcha');
       return;
@@ -59,7 +62,7 @@ const AgentRegistration = ({ onSubmit }) => {
     }
 
     console.log('Received values of form: ', values);
-    onSubmit();
+     onComplete('2')
   };
 
   const validatePhoneNumber = (phone) => {
@@ -95,10 +98,15 @@ const AgentRegistration = ({ onSubmit }) => {
     }
     return Promise.resolve();
   };
+  const changeTab = () => {
+ 
+}
+  
 
+  
   return (
     <div className='container'>
-
+      
         <div className="personalDetails">
           <h2 className="heading">New Account Registration</h2>
           <Form
@@ -309,13 +317,15 @@ const AgentRegistration = ({ onSubmit }) => {
                     wrapperCol={{ span: 24 }}
                     style={{ textAlign: 'center' }}
                   >
-                    <Button type="primary" htmlType="submit" style={{ width: '100%' }}>Register</Button>
+                    <Button type="primary" htmlType="submit" style={{ width: '100%' }} >Register</Button>
+                    
                   </Form.Item>
                 </div>
               </div>
             </div>
           </Form>
         </div>
+     
       </div>
   );
 };
