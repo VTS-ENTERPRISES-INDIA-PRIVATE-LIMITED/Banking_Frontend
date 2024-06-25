@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import './Recharge.css';
-import Confirm from './Confirm';
-import Modal from 'react-modal';
-
 
 function Recharge() {
     const plans = [
@@ -11,37 +8,16 @@ function Recharge() {
         { name: 'Premium Plan', amount: 809, perks: ['2GB/Day + 20GB', 'Unlimited Calls', '100 SMS/day'], validity: '90 Days', badge: '' },
     ];
 
-    const [selectedPlan, setSelectedPlan] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedCard, setSelectedCard] = useState('');
-    const [card, setCard] = useState('');
-    const [cardPreview, setCardPreview] = useState('');
+    const [activeTab, setActiveTab] = useState('Popular');
 
-    const handlePlanClick = (plan) => {
-        setSelectedPlan(plan);
-        setIsModalOpen(true);
-        // Handle other logic related to plan selection
-    };
-    const handleCardChange = (event) => {
-        const file = event.target.files[0];
-        setCard(file);
-        setCardPreview(URL.createObjectURL(file));
-      };
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
-        // Handle search filtering
     };
 
-    const filteredPlans = plans.filter((plan) =>
+    const filteredPlans = plans.filter(plan => 
         plan.validity.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
-   const getData=()=>{
-    console.log("clicked")
-   }
-
-
 
     return (
         <div className="recharge-container">
@@ -50,7 +26,7 @@ function Recharge() {
             </div>
             <input
                 type="text"
-                placeholder="Search for a plan, eg 28days "
+                placeholder="Search for a plan, eg 249 or 28days "
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="search-bar"
@@ -58,10 +34,9 @@ function Recharge() {
            
             <div className="card-container">
                 {filteredPlans.map((plan, index) => (
-                    
-                    <div key={index} onClick={getData} className="card">
+                    <div key={index} className="card">
                         {plan.badge && <div className="badge">{plan.badge}</div>}
-                        <div className="card-header"  onClick={handlePlanClick}>
+                        <div className="card-header">
                             <div className="amount">₹{plan.amount}</div>
                             <div className="data">Data: {plan.perks[0]}</div>
                             <div className="validity">Validity: {plan.validity}</div>
@@ -73,12 +48,8 @@ function Recharge() {
                     </div>
                 ))}
             </div>
-           
-      
-        
         </div>
     );
-
 }
 
 export default Recharge;
