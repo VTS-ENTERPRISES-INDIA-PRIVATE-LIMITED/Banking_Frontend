@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-<<<<<<< HEAD
+
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from './Components/Login/Login'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
@@ -23,15 +23,6 @@ function App() {
         </Routes>
       
       </BrowserRouter>
-      
-=======
-import { Login } from './Components/Login/Login';
-
-function App() {
-  return (
-    <div className="App">
-     <Login />
-    </div>
->>>>>>> d100549b473039f134e742ef7d0d2ff560f63cfe
-  );
+  )
 }
+export default App;
