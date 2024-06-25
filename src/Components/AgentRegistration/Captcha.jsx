@@ -31,12 +31,13 @@ const Captcha = ({ onValidate }) => {
       <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
         <span style={{
           fontSize: '16px',
+          fontFamily:'Arial',
           padding:'2px',
           border: '1px solid #ccc',
           borderRadius: '4px',
           textDecoration: 'line-through',
           background: '#fff', 
-          color: '#666', 
+          color: 'black', 
         }}>{captcha}</span>
         <Button onClick={handleGenerate} style={{ marginLeft: '10px', background: '#fff', color: '#333', border: '1px solid #ccc' }}>Refresh</Button>
       </div>

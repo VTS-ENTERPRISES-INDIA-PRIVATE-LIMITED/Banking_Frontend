@@ -11,7 +11,7 @@ Modal.setAppElement('#root');
 
 
 
-const Uploads = () => {
+const Uploads = ({onComplete}) => {
   const [panCard, setPanCard] = useState(null);
   const [aadharCard, setAadharCard] = useState(null);
   const [panCardUrl, setPanCardUrl] = useState('');
@@ -22,6 +22,7 @@ const Uploads = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
 
+  
   const handlePanCardChange = (event) => {
     const file = event.target.files[0];
     setPanCard(file);
@@ -44,7 +45,7 @@ const Uploads = () => {
     const formData = new FormData();
     formData.append('panCard', panCard);
     formData.append('aadharCard', aadharCard);
-
+    onComplete('3')
     try {
       const response = await axios.post('http://localhost:5000/upload', formData, {
         headers: {
@@ -54,6 +55,7 @@ const Uploads = () => {
       setPanCardUrl(response.data.panCardUrl);
       setAadharCardUrl(response.data.aadharCardUrl);
       message.success(`files uploaded successfully`);
+      
     } catch (error) {
       console.error('Error uploading images', error);
       message.error(`files upload failed.`);
