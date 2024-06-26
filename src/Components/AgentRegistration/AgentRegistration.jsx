@@ -257,7 +257,7 @@ const AgentRegistration = ({ onComplete}) => {
                     wrapperCol={{ span: 24 }}
                     style={{ textAlign: 'center' }}
                   >
-                    <Button type="primary" htmlType="submit" style={{ width: '100%' }} >Register</Button>
+                    <Button type="primary" htmlType="submit" style={{ width: '100%',height:'40px',backgroundColor:' #1c40d1'}} >Register</Button>
                     
                   </Form.Item>
               </div>
